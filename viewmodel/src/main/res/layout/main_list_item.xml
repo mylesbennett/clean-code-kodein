@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="item" type="com.aimicor.latinpost.PostSummary" />
+        <variable name="clickSubject" type="io.reactivex.subjects.PublishSubject" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:onClick="@{() -> clickSubject.onNext(item.postId)}">
+
+        <TextView
+                android:id="@+id/textViewItemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@{item.title}"
+                android:layout_marginBottom="20dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="Hello, Jetpack!"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

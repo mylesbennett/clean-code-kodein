@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="detail" type="com.aimicor.latinpost.viewmodel.detail.DetailViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:background="@android:color/white">
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{detail.postDetails.title}"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="title"/>
+
+        <TextView
+                android:id="@+id/body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="@{detail.postDetails.body}"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintStart_toStartOf="@+id/title"
+                tools:text="body"/>
+
+        <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@{detail.postDetails.user}"
+                android:textColor="#0000ff"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="@+id/body"
+                app:layout_constraintTop_toBottomOf="@+id/body"
+                tools:text="username"/>
+
+        <TextView
+                android:id="@+id/comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textColor="#00ff00"
+                android:text="@string/comments"
+                app:layout_constraintStart_toStartOf="@+id/username"
+                app:layout_constraintTop_toBottomOf="@+id/username"/>
+
+        <TextView
+                android:id="@+id/comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{detail.postDetails.comments}"
+                android:textColor="#ff0000"
+                app:layout_constraintStart_toEndOf="@+id/comment"
+                app:layout_constraintTop_toTopOf="@+id/comment"
+                tools:text="comments"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        app:startDestination="@id/mainFragment">
+
+    <fragment
+            android:id="@+id/mainFragment"
+            android:name="com.aimicor.latinpost.view.main.MainFragment"
+            android:label="Fruits"
+            tools:layout="@layout/main_fragment">
+        <action
+                android:id="@+id/action_mainFragment_to_detailFragment"
+                app:destination="@id/detailFragment"
+                app:enterAnim="@anim/slide_in_from_right"
+                app:popExitAnim="@anim/slide_out_from_right"
+                app:exitAnim="@anim/fade_out"/>
+    </fragment>
+    <fragment
+            android:id="@+id/detailFragment"
+            android:name="com.aimicor.latinpost.view.detail.DetailFragment"
+            android:label="Fruit Details"
+            tools:layout="@layout/detail_fragment">
+
+    </fragment>
+</navigation>

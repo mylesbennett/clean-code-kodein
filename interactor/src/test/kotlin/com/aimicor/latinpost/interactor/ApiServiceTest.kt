@@ -24,8 +24,8 @@ abstract class ApiServiceTest<T : ApiServiceInteractor>(
 
     @Before
     fun `set up`() {
-        Mockito.`when`(subject.apiService()).thenReturn(apiService)
-        Mockito.`when`(subject.schedulers()).thenReturn(schedulers)
+        Mockito.`when`(subject.apiService).thenReturn(apiService)
+        Mockito.`when`(subject.schedulers).thenReturn(schedulers)
         Mockito.`when`(schedulers.io()).thenReturn(Schedulers.trampoline())
     }
 }

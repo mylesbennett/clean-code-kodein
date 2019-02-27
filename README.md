@@ -7,8 +7,10 @@ Once loaded you may need to `Build -> Rebuild Project` to get all of the data bi
 If you google "clean code architecture" you will get plenty of hits containing onion diagrams all pretty much based on Uncle Bob's flagship:
 http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
   
-My interpretation looks like this:
-![](cleancode.png)
+My interpretation looks like this:  
+
+![](cleancode.png)  
+
 The difference between this and the other countless Android implementations is that I have enforced the Dependancy Rule using project modules. Each onion skin is its' own project module with one and only one module dependancy on the adjacent module working inwards from the outside - except the inner-most 'Model' module which has no module dependency.  
 ###### App
 The aim is that this layer will only ever contain Activities, Fragments, the Navigation Controller and some layouts. These Activities and Fragments will be responsible for binding data with the View Model layer and for navigating between Activities and Fragments - and that's all.

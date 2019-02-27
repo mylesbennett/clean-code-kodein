@@ -50,7 +50,6 @@ class MainFragment : Fragment(), KodeinAware {
     }
 
     private fun showDetail(detailViewModel: DetailViewModel) {
-        showProgress(false)
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_mainFragment_to_detailFragment, DetailFragment.with(detailViewModel))
     }

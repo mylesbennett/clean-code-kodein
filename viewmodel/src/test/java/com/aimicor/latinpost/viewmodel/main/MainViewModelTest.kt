@@ -73,6 +73,8 @@ class MainViewModelTest {
     @Test
     fun `can click on item`() {
         val detailViewModel = mock(DetailViewModel::class.java)
+        val detailsReceived = PublishSubject.create<DetailViewModel>()
+        `when`(detailViewModel.detailViewModelEvent).thenReturn(detailsReceived)
         `when`(detailViewModelFactory.create(1)).thenReturn(detailViewModel)
         `when`(posts.fetch()).thenReturn(listSubject)
 
@@ -81,7 +83,9 @@ class MainViewModelTest {
         clickSubject.onNext(1)
 
         verify(showProgress).onChanged(true)
-        observer.assertValue(detailViewModel)
 
+        detailsReceived.onNext(detailViewModel)
+        observer.assertValue(detailViewModel)
+        verify(showProgress).onChanged(false)
     }
 }

@@ -32,6 +32,7 @@ class MainViewModel(
             .doOnNext { showProgress.value = true }
             .switchMap { onItemClick(it) }
             .observeOn(schedulers.mainThread())
+            .doOnNext { showProgress.value = false }
             .subscribe { listItemClickSubject.onNext(it) }
     )
 
